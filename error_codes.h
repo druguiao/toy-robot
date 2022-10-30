@@ -1,0 +1,17 @@
+#ifndef _ERROR_CODES_H
+#define _ERROR_CODES_H
+
+int const SUCCESS = 0;
+int const ERROR_COMMAND_INVALID_FORMAT = 1;
+int const ERROR_COMMAND_PLACE_INCOMPLETE_ARGS = 3;
+int const ERROR_COMMAND_PLACE_ARGS_INVALID_DIRECTION = 4;
+
+// Generic Errors
+int const ERROR_PARSE = 10;
+
+// Robot Errors
+int const ERROR_ROBOT_INVALID_COMMAND = 20;
+int const ERROR_ROBOT_FAILED_TO_EXECUTE = 21;
+int const ERROR_ROBOT_NOT_PLACED = 22;
+
+#endif
