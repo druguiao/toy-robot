@@ -3,13 +3,13 @@ This project was created by Dru Guiao.
 How to run main program (classic):
 1. cd path/to/toy-robot
 2. Compile all cpp files: 
-    > g++ -o bin/toy-robot *.cpp
+    - > g++ -o bin/toy-robot *.cpp
 3. Run toy-robot program (Command-line input): 
-    > ./bin/toy-robot
-    > Note: Program will end if no input is given
+    - > ./bin/toy-robot
+    - > Note: Program will end if no input is given
 4. Run toy-robot program (File-based input):
-    > ./bin/toy-robot -i <filename>
-    > Note: filename should not have any spaces
+    - > ./bin/toy-robot -i <filename>
+    - > Note: filename should not have any spaces
 
 How to run tests:
 Note: proceed to step 3 if googletest was already cloned
