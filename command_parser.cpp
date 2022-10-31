@@ -21,19 +21,17 @@ Command* CommandParser::Parse(std::string line) {
     //
     if (line.rfind(STRING_PLACE, 0) == 0) {
 
-        // Separate PLACE token and PLACE ARGS
+        // Isolate PLACE ARGS (<x>,<y>,<direction>)
         // 
         line.erase(0,STRING_PLACE.length());
-
-        //
-        if (line.length() == 0) return nullptr;
-        if (line.at(0) != ' ') return nullptr;
+        if (line.length() == 0) return nullptr; // No args 
+        if (line.at(0) != ' ') return nullptr; // Proper delimiter not used
 
         // Check for coordinate arguments tied to the PLACE command
         // 
         line = this->trim(line);
         auto coordinateTokens = this->split(line, ARG_COMMAND_PLACE_DELIMITER);
-        if (coordinateTokens.size() != NUM_OF_ARGS_COMMAND_PLACE) return nullptr;
+        if (coordinateTokens.size() != NUM_OF_ARGS_COMMAND_PLACE) return nullptr; // Insufficient number of args
 
         // Parse X Coordinate
         // 
@@ -111,15 +109,15 @@ std::string & CommandParser::trim(std::string & str)
 
 std::string & CommandParser::leftTrim(std::string & str)
 {
-  auto it2 =  std::find_if( str.begin() , str.end() , [](char ch){ return !std::isspace<char>(ch , std::locale::classic() ) ; } );
-  str.erase( str.begin() , it2);
+  auto it =  std::find_if( str.begin() , str.end() , [](char ch){ return !std::isspace<char>(ch , std::locale::classic() ) ; } );
+  str.erase( str.begin() , it);
   return str;   
 }
 
 std::string & CommandParser::rightTrim(std::string & str)
 {
-  auto it1 =  std::find_if( str.rbegin() , str.rend() , [](char ch){ return !std::isspace<char>(ch , std::locale::classic() ) ; } );
-  str.erase( it1.base() , str.end() );
+  auto it =  std::find_if( str.rbegin() , str.rend() , [](char ch){ return !std::isspace<char>(ch , std::locale::classic() ) ; } );
+  str.erase( it.base() , str.end() );
   return str;   
 }
 
