@@ -25,7 +25,7 @@ int main(int argCount, char *argv[]) {
                 continue;
             }
             std::cout << "ERROR: -i arg is used but no value is found" << std::endl;
-            return 1;
+            return -1;
         }
     }
     std::string inputFile = args[ARG_TOKEN_SHORT_FORM_INPUT];
@@ -48,7 +48,8 @@ int main(int argCount, char *argv[]) {
             file.close();
             return 0;
         }
-        std::cout << "Error: File: " << inputFile << " is not open!" << std::endl;
+        std::cout << "Error loading input file: '" << inputFile << "'" << std::endl;
+        return -1;
     }
 
     // Get input from command line

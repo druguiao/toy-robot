@@ -153,7 +153,7 @@ int CommandParser::parseInt(std::string const& val, int& output)
     try {
         output = stoi(val);
     } catch(...) {
-        std::cout << "CommandParser::parseInt. Failed to parse: " << val << std::endl;
+        std::cout << "CommandParser::parseInt. Failed to parse: '" << val << "'" <<std::endl;
         return ERROR_PARSE;
     }
 
